@@ -1,0 +1,242 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ragnarock - museum for pop, rock og ungdomskultur</title>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        <style>
+            
+            *{
+            Box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            
+            }
+            
+            .knap{
+            margin-top: 110vh;
+            }
+            
+            #box1{
+            display: block;
+            }
+           
+            main{
+            height: 100vh;
+            width: 100vw;
+            padding: 0px;
+            overflow: hidden;
+            background-color: #b6f38a;
+            }
+            
+            #kort{
+            height: 100vh;
+            width: auto;
+            margin: auto;
+            padding: 0;
+            position: fixed;
+            left: 50%;
+            transform: translate(-50%);
+            }
+
+            
+            .info-box{
+            background-color: white;
+           padding: 20px;
+           width: 350px;
+            position: absolute;
+              display: none;
+            
+            }
+            
+            .show{
+            display: block;
+            }
+            
+            
+            #place1{
+             top: 42vh;
+            }
+            
+             #place2{
+           
+             top: 45.5vh;
+            }
+            
+            #place3{
+             
+             top: 50vh;
+            }
+            
+            #ob1{
+            
+                width: 18vh;
+                position: absolute;
+                top: 29vh;
+                left: 0;
+                z-index: 200;
+                filter: drop-shadow(5px 5px 5px #222); 
+
+               
+            }
+            
+             
+            #ob2{
+            
+                width: 26vh;
+                position: absolute;
+                top: 27.5vh;
+                z-index: 200;
+                filter: drop-shadow(5px 5px 5px #222); 
+               
+            }
+            
+             #ob3{
+            
+                width: 26vh;
+                position: absolute;
+                top: 12.3vh;
+                z-index: 200;
+                filter: drop-shadow(5px 5px 5px #222); 
+           
+            }
+            
+            #click{
+            width: 100vw;
+            height: 100vh;
+            z-index: 100; 
+            position: absolute;
+            top: 0;
+            left: 0;
+            
+            }
+
+            
+            #test{
+            background-color: red;
+            width: 20px;
+            height: 20px;
+            
+                
+            }     
+       
+            
+            
+        </style>
+            
+    </head>
+    <body>
+        
+    
+    <main>
+        
+        
+        <img src="kort.JPG" alt="kort" id="kort">
+       
+        
+        <div id="click"></div>
+        
+       
+        
+     <div id="box1">   
+       <button type="button" class="knap">
+         <img src="object1.png" alt="object 1" class="" id="ob1">
+       </button>
+       <p class="info-box" id="place1">
+           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh nisl condimentum id venenatis a condimentum vitae. Dignissim sodales ut eu sem integer. Ornare arcu dui vivamus arcu felis bibendum ut tristique.
+       </p>
+     </div>
+      
+        
+        
+       <div id="box2">   
+       <button type="button" class="knap">
+         <img src="object2.png" alt="object 2" class="" id="ob2">
+       </button>
+       <p class="info-box" id="place2">
+           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh nisl condimentum id venenatis a condimentum vitae. Dignissim sodales ut eu sem integer. Ornare arcu dui vivamus arcu felis bibendum ut tristique.
+       </p>
+     </div>
+        
+        
+               <div id="box3">   
+       <button type="button" class="knap">
+         <img src="object3.png" alt="object 3" class="" id="ob3">
+       </button>
+       <p class="info-box" id="place3">
+           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh nisl condimentum id venenatis a condimentum vitae. Dignissim sodales ut eu sem integer. Ornare arcu dui vivamus arcu felis bibendum ut tristique.
+       </p>
+     </div>
+       
+        
+        
+        </main>    
+        
+      
+        
+        <script>
+       
+   /*ELEMENT POSITION ONLOAD*/     
+       var kort = document.getElementById("kort");     
+       var rect = kort.getBoundingClientRect();
+        
+       /*building*/      
+       document.getElementById("ob1").style.marginLeft= rect.left - 6 +"px"; 
+       document.getElementById("ob2").style.marginLeft= rect.left + ((kort.offsetWidth / 100) * 64) +"px";
+       document.getElementById("ob3").style.marginLeft= rect.left + ((kort.offsetWidth / 100) * 30.5) +"px";
+            
+       /*Textbox*/       
+       document.getElementById("place1").style.marginLeft= rect.left + 20 +"px";
+       document.getElementById("place2").style.marginLeft= rect.left + ((kort.offsetWidth / 100) * 64) - 50 +"px";     
+       document.getElementById("place3").style.marginLeft= rect.left + ((kort.offsetWidth / 100) * 30.5) - 60 +"px"; 
+            
+            
+   /*ELEMENT POSITION RESIZE*/        
+       $(window).resize(function() {
+           var kort = document.getElementById("kort");     
+       var rect = kort.getBoundingClientRect();
+            
+       /*building*/    
+       document.getElementById("ob1").style.marginLeft= rect.left - 6 +"px";
+       document.getElementById("ob2").style.marginLeft= rect.left + ((kort.offsetWidth / 100) * 64) +"px";
+       document.getElementById("ob3").style.marginLeft= rect.left + ((kort.offsetWidth / 100) * 30.5) +"px";
+       
+      /*Textbox*/     
+      document.getElementById("place1").style.marginLeft= rect.left + 20 +"px";
+      document.getElementById("place2").style.marginLeft= rect.left + ((kort.offsetWidth / 100) * 64) - 50 +"px";     
+      document.getElementById("place3").style.marginLeft= rect.left + ((kort.offsetWidth / 100) * 30.5) - 60 +"px"; 
+       
+});
+       
+  
+   /*Textbox remove - screen click*/         
+   document.getElementById("click").addEventListener("click", function() {
+      if( $("p").hasClass("show")){
+    $("p").removeClass("show");    
+    }
+       
+});         
+   
+  /*Textbox toggle - button*/
+            
+  $("button").click(function() {
+    var y = $(this).parent().attr('id');
+    var z = document.getElementById(y); 
+    var v = $(z).find("p").attr('id');
+    var x = document.getElementById(v);
+      
+      
+      if(!$(x).hasClass("show")){
+    $("p").removeClass("show");
+    $(x).addClass("show");
+    } else {
+      $(x).removeClass("show") 
+        }
+    
+});
+       
+          
+        </script>
+    </body>
+</html>
